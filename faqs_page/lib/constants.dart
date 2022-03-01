@@ -1,22 +1,39 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_lorem/flutter_lorem.dart';
 
 class Constants with ChangeNotifier {
-  static const Map<String, String> quesAnd = {
+  static final Map<String, String> quesAnd = {
     'Question 1,Lorem Ipsum is simply dummy text of the printing and typesetting industry.':
-        "Answer1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, mestiae quas vel sint commodi repudiandae consequuntur voluptatum laborumnumquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentiumoptio, eaque rerum! Provident similique accusantium nemo autem. Veritatisobcaecati tenetur iure eius earum ut molestias architecto voluptate aliquamnihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit,tenetur error, harum nesciunt ipsum debitis quas aliquid.",
+        lorem(),
     'Question 2 ,Lorem Ipsum simply dummy text of the printing and typesetting industry.':
-        "Answer 2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, mestiae quas vel sint commodi repudiandae consequuntur voluptatum laborumnumquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentiumoptio, eaque rerum! Provident similique accusantium nemo autem. Veritatisobcaecati tenetur iure eius earum ut molestias architecto voluptate aliquamnihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit,tenetur error, harum nesciunt ipsum debitis quas aliquid.",
+        lorem(),
     'Question 3, Lorem Ipsum is simply dummy text of the printing and typesetting industry.':
-        "Answer 3 Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, mestiae quas vel sint commodi repudiandae consequuntur voluptatum laborumnumquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentiumoptio, eaque rerum! Provident similique accusantium nemo autem. Veritatisobcaecati tenetur iure eius earum ut molestias architecto voluptate aliquamnihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit,tenetur error, harum nesciunt ipsum debitis quas aliquid.",
+        lorem(),
     'Question 4, Lorem Ipsum is simply dummy text of the printing and typesetting industry.':
-        "Answer 4 Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, mestiae quas vel sint commodi repudiandae consequuntur voluptatum laborumnumquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentiumoptio, eaque rerum! Provident similique accusantium nemo autem. Veritatisobcaecati tenetur iure eius earum ut molestias architecto voluptate aliquamnihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit,tenetur error, harum nesciunt ipsum debitis quas aliquid.",
+        lorem(),
     'Question 5, Lorem Ipsum is simply dummy text of the printing and typesetting industry.':
-        "Answer 5 Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, mestiae quas vel sint commodi repudiandae consequuntur voluptatum laborumnumquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentiumoptio, eaque rerum! Provident similique accusantium nemo autem. Veritatisobcaecati tenetur iure eius earum ut molestias architecto voluptate aliquamnihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit,tenetur error, harum nesciunt ipsum debitis quas aliquid.",
+        lorem(),
     'Question 6, Lorem Ipsum is simply dummy text of the printing and typesetting industry.':
-        "Answer 6 Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, mestiae quas vel sint commodi repudiandae consequuntur voluptatum laborumnumquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentiumoptio, eaque rerum! Provident similique accusantium nemo autem. Veritatisobcaecati tenetur iure eius earum ut molestias architecto voluptate aliquamnihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit,tenetur error, harum nesciunt ipsum debitis quas aliquid.",
+        'answer6',
     'Question 7, Lorem Ipsum is simply dummy text of the printing and typesetting industry.':
-        "Answer 7 Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, mestiae quas vel sint commodi repudiandae consequuntur voluptatum laborumnumquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentiumoptio, eaque rerum! Provident similique accusantium nemo autem. Veritatisobcaecati tenetur iure eius earum ut molestias architecto voluptate aliquamnihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit,tenetur error, harum nesciunt ipsum debitis quas aliquid.",
+        'answer7',
     'Question 8, Lorem Ipsum is simply dummy text of the printing and typesetting industry.':
-        "Answer 8 Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, mestiae quas vel sint commodi repudiandae consequuntur voluptatum laborumnumquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentiumoptio, eaque rerum! Provident similique accusantium nemo autem. Veritatisobcaecati tenetur iure eius earum ut molestias architecto voluptate aliquamnihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit,tenetur error, harum nesciunt ipsum debitis quas aliquid.",
+        'answer8'
   };
+
+  static const Color bgColor = Color(0xFF21424B);
+  static const List<Color> shadesBgColor = [
+    Color(0xFF172E34),
+    Color(0xFF102125),
+    Color(0xFF060D0F),
+    Color(0xFF030607),
+    Color(0xFF000000),
+  ];
+  static const List<Color> tintsBgColor = [
+    Color(0xFF37545D),
+    Color(0xFF798d93),
+    Color(0xFFA6B3B7),
+    Color(0xFFE8ECED),
+    Color(0xFFFFFFFF),
+  ];
 }
