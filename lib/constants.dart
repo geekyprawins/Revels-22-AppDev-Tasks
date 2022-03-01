@@ -1,17 +1,18 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_lorem/flutter_lorem.dart';
 
 class Constants with ChangeNotifier {
-  static const Map<String, String> quesAnd = {
+  static final Map<String, String> quesAnd = {
     'Question 1,Lorem Ipsum is simply dummy text of the printing and typesetting industry.':
-        'answer1',
+        lorem(),
     'Question 2 ,Lorem Ipsum simply dummy text of the printing and typesetting industry.':
-        'answer2',
+        lorem(),
     'Question 3, Lorem Ipsum is simply dummy text of the printing and typesetting industry.':
-        'answer3',
+        lorem(),
     'Question 4, Lorem Ipsum is simply dummy text of the printing and typesetting industry.':
-        'answer4',
+        lorem(),
     'Question 5, Lorem Ipsum is simply dummy text of the printing and typesetting industry.':
-        'answer5',
+        lorem(),
     'Question 6, Lorem Ipsum is simply dummy text of the printing and typesetting industry.':
         'answer6',
     'Question 7, Lorem Ipsum is simply dummy text of the printing and typesetting industry.':
@@ -19,4 +20,20 @@ class Constants with ChangeNotifier {
     'Question 8, Lorem Ipsum is simply dummy text of the printing and typesetting industry.':
         'answer8'
   };
+
+  static const Color bgColor = Color(0xFF21424B);
+  static const List<Color> shadesBgColor = [
+    Color(0xFF172E34),
+    Color(0xFF102125),
+    Color(0xFF060D0F),
+    Color(0xFF030607),
+    Color(0xFF000000),
+  ];
+  static const List<Color> tintsBgColor = [
+    Color(0xFF37545D),
+    Color(0xFF798d93),
+    Color(0xFFA6B3B7),
+    Color(0xFFE8ECED),
+    Color(0xFFFFFFFF),
+  ];
 }
