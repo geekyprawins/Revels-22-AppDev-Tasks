@@ -14,11 +14,11 @@ class Constants with ChangeNotifier {
     'Question 5, Lorem Ipsum is simply dummy text of the printing and typesetting industry.':
         lorem(),
     'Question 6, Lorem Ipsum is simply dummy text of the printing and typesetting industry.':
-        'answer6',
+        lorem(),
     'Question 7, Lorem Ipsum is simply dummy text of the printing and typesetting industry.':
-        'answer7',
+        lorem(),
     'Question 8, Lorem Ipsum is simply dummy text of the printing and typesetting industry.':
-        'answer8'
+        lorem()
   };
 
   static const Color bgColor = Color(0xFF21424B);
