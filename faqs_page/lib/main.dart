@@ -1,7 +1,7 @@
 import 'package:faqs_page/scroll.dart';
-import 'package:flip_card/flip_card.dart';
+// import 'package:flip_card/flip_card.dart';
 import 'package:flutter/material.dart';
-import 'package:faqs_page/neumorphism_card.dart';
+// import 'package:faqs_page/neumorphism_card.dart';
 import 'package:faqs_page/constants.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'constants.dart';
@@ -160,7 +160,7 @@ class _MyHomePageState extends State<MyHomePage> {
             SliverAppBar(
               // title: Text('FAQ'),
               backgroundColor: Constants.bgColor,
-              expandedHeight: 200,
+              expandedHeight: 180,
               pinned: true,
               stretch: true,
 
@@ -168,38 +168,57 @@ class _MyHomePageState extends State<MyHomePage> {
 
               // title: Text("FAQs"),
               flexibleSpace: FlexibleSpaceBar(
+                // centerTitle: true,
+                titlePadding: const EdgeInsets.symmetric(vertical: 70),
+                title: Center(
+                  child: NeumorphicText(
+                    "F A Q",
+                    style: NeumorphicStyle(
+                      depth: 5,
+                      color: Constants.tintsBgColor[3],
+                    ),
+                    textStyle: NeumorphicTextStyle(
+                      fontSize: 40,
+                      // fontWeight: FontWeight.bold,
+                      fontFamily: "LibreBaskerville",
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                ),
                 background: DecoratedBox(
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
                       begin: Alignment.topLeft,
                       end: Alignment.bottomLeft,
                       colors: <Color>[
-                        Colors.lightBlueAccent.withOpacity(0.8),
+                        Constants.shadesBgColor[0],
+                        // Colors.black54,
+                        // Colors.lightBlueAccent.withOpacity(0.8),
                         Colors.transparent,
                         Constants.shadesBgColor[0],
                       ],
                     ),
                   ),
-                  child: Center(
-                    child: NeumorphicText(
-                      "F A Q",
-                      style: NeumorphicStyle(
-                        depth: 5,
-                        color: Constants.tintsBgColor[3],
-                      ),
-                      textStyle: NeumorphicTextStyle(
-                        fontSize: 50,
-                        // fontWeight: FontWeight.bold,
-                        fontFamily: "LibreBaskerville",
-                        fontWeight: FontWeight.w700,
-                      ),
-                    ),
-                  )
+                  // child: Center(
+                  //   child: NeumorphicText(
+                  //     "F A Q",
+                  //     style: NeumorphicStyle(
+                  //       depth: 5,
+                  //       color: Constants.tintsBgColor[3],
+                  //     ),
+                  //     textStyle: NeumorphicTextStyle(
+                  //       fontSize: 50,
+                  //       // fontWeight: FontWeight.bold,
+                  //       fontFamily: "LibreBaskerville",
+                  //       fontWeight: FontWeight.w700,
+                  //     ),
+                  //   ),
+                  // )
                   // Image.asset(
                   //   'assets/revels_nobg.png',
                   //   fit: BoxFit.contain,
                   // )
-                  ,
+                  // ,
                 ),
                 // title: Text("FAQs"),
               ),
@@ -233,12 +252,15 @@ class _MyHomePageState extends State<MyHomePage> {
             //   ),
             // ),
             SliverFillRemaining(
+              fillOverscroll: true,
               hasScrollBody: true,
               child: ListView.builder(
                 itemCount: Constants.quesAnd.length,
                 itemBuilder: (context, index) => Padding(
                   padding: const EdgeInsets.symmetric(
-                      horizontal: 20.0, vertical: 20.0),
+                    horizontal: 20.0,
+                    vertical: 20.0,
+                  ),
                   child: Neumorphic(
                     style: NeumorphicStyle(
                       color: Constants.bgColor,
@@ -249,26 +271,12 @@ class _MyHomePageState extends State<MyHomePage> {
                       shadowLightColor: Constants.tintsBgColor[0],
                     ),
                     child: ExpansionTile(
-                      trailing: NeumorphicButton(
-                        style: NeumorphicStyle(
-                          shape: NeumorphicShape.convex,
-                          boxShape: NeumorphicBoxShape.circle(),
-                          depth: 5,
-                          lightSource: LightSource.topLeft,
-                          color: Constants.shadesBgColor[1],
-                        ),
-                        child: NeumorphicIcon(
-                          Icons.arrow_downward_rounded,
-                          size: 25,
-                          style: NeumorphicStyle(
-                            color: Colors.white70,
-                            depth: 1,
-                          ),
-                        ),
+                      key: PageStorageKey<String>(
+                        Constants.quesAnd.keys.elementAt(index),
                       ),
                       collapsedIconColor: Colors.white,
-                      iconColor: Colors.purple[200],
-                      textColor: Colors.purple[200],
+                      iconColor: Colors.lightBlue,
+                      textColor: Colors.lightBlue,
                       title: Padding(
                         padding: const EdgeInsets.only(
                           left: 5.0,
@@ -309,11 +317,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         ),
                       ],
                       backgroundColor: Constants.bgColor,
-                      controlAffinity: ListTileControlAffinity.platform,
-                      // trailing: NeumorphismCard(
-                      //   child: Container(),
-                      //   showButton: true,
-                      // ),
+                      controlAffinity: ListTileControlAffinity.trailing,
                     ),
                   ),
                 ),
