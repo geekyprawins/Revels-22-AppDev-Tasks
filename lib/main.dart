@@ -70,8 +70,10 @@
 // }
 import 'dart:ffi';
 
+import 'package:flutter/services.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:flutter/material.dart';
+import 'package:neurmorphism_faq/glass.dart';
 
 import 'constants.dart';
 
@@ -105,40 +107,53 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   @override
+  void initState() {
+    super.initState();
+    SystemChrome.setSystemUIOverlayStyle(
+      SystemUiOverlayStyle(
+        systemNavigationBarColor: Constants.shadesBgColor[1],
+      ),
+    );
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Constants.shadesBgColor[0],
       body: SafeArea(
         child: CustomScrollView(
           slivers: [
             SliverAppBar(
-              // title: Text('FAQ'),
-              backgroundColor: Constants.bgColor,
-              expandedHeight: 200,
-              pinned: true,
-              stretch: true,
+              title: Text('FAQ'),
+              centerTitle: true,
+              backgroundColor: Constants.shadesBgColor[0],
+              elevation: 3,
+              // expandedHeight: 200,
+
+              // stretch: true,
 
               // onStretchTrigger: () async => print('stretched'),
 
               // title: Text("FAQs"),
-              flexibleSpace: FlexibleSpaceBar(
-                background: DecoratedBox(
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.center,
-                      colors: <Color>[
-                        Colors.lightBlue.withOpacity(0.6),
-                        Colors.transparent,
-                      ],
-                    ),
-                  ),
-                  child: Image.asset(
-                    'assets/revels_nobg.png',
-                    fit: BoxFit.contain,
-                  ),
-                ),
-                // title: Text("FAQs"),
-              ),
+              // flexibleSpace: FlexibleSpaceBar(
+              //   background: DecoratedBox(
+              //     decoration: BoxDecoration(
+              //       // gradient: LinearGradient(
+              //       //   begin: Alignment.topCenter,
+              //       //   end: Alignment.center,
+              //       //   colors: <Color>[
+              //       //     Colors.lightBlue.withOpacity(0.6),
+              //       //     Colors.transparent,
+              //       //   ],
+              //       // ),
+              //     ),
+              //     child: Image.asset(
+              //       'assets/faq_2.png',
+              //       fit: BoxFit.contain,
+              //     ),
+              //   ),
+              //   // title: Text("FAQs"),
+              // ),
               // title: Padding(
               //   padding: const EdgeInsets.all(8.0),
               //   child: Center(
@@ -170,54 +185,88 @@ class _MyHomePageState extends State<MyHomePage> {
             // ),
             SliverFillRemaining(
               hasScrollBody: true,
-              child: ListView.builder(
-                itemCount: Constants.quesAnd.length,
-                itemBuilder: (context, index) => Padding(
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: 20.0, vertical: 15.0),
-                  child: Neumorphic(
-                    style: NeumorphicStyle(
-                      color: Constants.bgColor,
-                      lightSource: LightSource.topLeft,
-                      intensity: 1,
-                      depth: 3,
-                      shadowDarkColor: Constants.shadesBgColor[0],
-                      shadowLightColor: Constants.tintsBgColor[0],
-                    ),
-                    child: ExpansionTile(
-                      collapsedIconColor: Colors.white,
-                      iconColor: Colors.purple[200],
-                      textColor: Colors.purple[200],
-                      title: Text(
-                        Constants.quesAnd.keys.elementAt(index),
-                      ),
-                      children: [
-                        Neumorphic(
-                          style: NeumorphicStyle(
-                            depth: -4,
-                            intensity: 0.5,
-                            color: Constants.bgColor,
-                            shadowDarkColor: Constants.shadesBgColor[2],
-                            shadowLightColor: Constants.tintsBgColor[0],
-                            shadowLightColorEmboss: Constants.shadesBgColor[1],
-                            shadowDarkColorEmboss: Constants.shadesBgColor[3],
-                          ),
-                          child: ListTile(
-                            contentPadding: const EdgeInsets.symmetric(
-                                horizontal: 20.0, vertical: 15.0),
-                            title: Text(
-                              Constants.quesAnd.values.toList()[index],
+              child: Container(
+                decoration: const BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage('assets/revels_nobg.png'),
+                  ),
+                ),
+                child: ListView.builder(
+                  itemCount: Constants.quesAnd.length,
+                  itemBuilder: (context, index) => Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 20.0, vertical: 15.0),
+                    child: GlassMorphism(
+                        child: ExpansionTile(
+                          collapsedIconColor: Colors.white,
+                          iconColor: Colors.red,
+                          textColor: Colors.white,
+                          tilePadding: const EdgeInsets.all(7.0),
+                          title: Padding(
+                            padding: const EdgeInsets.all(10.0),
+                            child: Text(
+                              Constants.quesAnd.keys.elementAt(index),
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 20),
                             ),
                           ),
+                          children: [
+                            // Neumorphic(
+                            //   style: Constants.depressedNeumorphicEffect,
+                            //   child:
+                            ListTile(
+                              title: Text(
+                                Constants.quesAnd.values.toList()[index],
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 18,
+                                    color: Colors.black),
+                              ),
+                            ),
+                            // ),
+                          ],
+                          // backgroundColor: Constants.shadesBgColor[1],
+                          // collapsedBackgroundColor: Constants.shadesBgColor[1],
+                          controlAffinity: ListTileControlAffinity.trailing,
+                          // trailing: NeumorphismCard(
+                          //   child: Container(),
+                          //   showButton: true,
+                          // ),
                         ),
-                      ],
-                      backgroundColor: Constants.bgColor,
-                      controlAffinity: ListTileControlAffinity.trailing,
-                      // trailing: NeumorphismCard(
-                      //   child: Container(),
-                      //   showButton: true,
-                      // ),
-                    ),
+                        start: 0.6,
+                        end: 0.3),
+                    // child: Neumorphic(
+                    //   style: Constants.depressedNeumorphicEffect,
+                    // child: ExpansionTile(
+                    //   collapsedIconColor: Colors.white,
+                    //   iconColor: Colors.red,
+                    //   textColor: Colors.white,
+                    //   tilePadding: const EdgeInsets.all(7.0),
+                    //   title: Padding(
+                    //     padding: const EdgeInsets.all(10.0),
+                    //     child: Text(
+                    //       Constants.quesAnd.keys.elementAt(index),
+                    //     ),
+                    //   ),
+                    //   children: [
+                    //     Neumorphic(
+                    //       style: Constants.depressedNeumorphicEffect,
+                    //       child: ListTile(
+                    //         title: Text(
+                    //           Constants.quesAnd.values.toList()[index],
+                    //         ),
+                    //       ),
+                    //     ),
+                    //   ],
+                    //   backgroundColor: Constants.shadesBgColor[1],
+                    //   collapsedBackgroundColor: Constants.shadesBgColor[1],
+                    //   controlAffinity: ListTileControlAffinity.trailing,
+                    //   // trailing: NeumorphismCard(
+                    //   //   child: Container(),
+                    //   //   showButton: true,
+                    //   // ),
+                    // ),
+                    // ),
                   ),
                 ),
               ),

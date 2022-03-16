@@ -1,23 +1,24 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_lorem/flutter_lorem.dart';
+import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
 class Constants with ChangeNotifier {
   static final Map<String, String> quesAnd = {
-    'Question 1,Lorem Ipsum is simply dummy text of the printing and typesetting industry.':
+    'Lorem Ipsum is simply dummy text of the printing and typesetting industry.':
         lorem(),
-    'Question 2 ,Lorem Ipsum simply dummy text of the printing and typesetting industry.':
+    'Lorem Ipsum simply dummy text of the printing and typesetting industry.':
         lorem(),
-    'Question 3, Lorem Ipsum is simply dummy text of the printing and typesetting industry.':
+    'Lorem Ipsum is simply dummy text of the printing and typesetting industry..':
         lorem(),
-    'Question 4, Lorem Ipsum is simply dummy text of the printing and typesetting industry.':
+    'Lorem Ipsum is simply dummy text of the printing and typesetting industry...':
         lorem(),
-    'Question 5, Lorem Ipsum is simply dummy text of the printing and typesetting industry.':
+    'Lorem Ipsum is simply dummy text of the printing and typesetting industry.?':
         lorem(),
-    'Question 6, Lorem Ipsum is simply dummy text of the printing and typesetting industry.':
+    'Lorem Ipsum is simply dummy text of the printing and typesetting industry....':
         'answer6',
-    'Question 7, Lorem Ipsum is simply dummy text of the printing and typesetting industry.':
+    'Lorem Ipsum is simply dummy text of the printing and typesetting industry.!':
         'answer7',
-    'Question 8, Lorem Ipsum is simply dummy text of the printing and typesetting industry.':
+    ' Lorem Ipsum is simply dummy text of the printing and typesetting industry.':
         'answer8'
   };
 
@@ -36,4 +37,23 @@ class Constants with ChangeNotifier {
     Color(0xFFE8ECED),
     Color(0xFFFFFFFF),
   ];
+
+  static final depressedNeumorphicEffect = NeumorphicStyle(
+    depth: -2,
+    intensity: 0.5,
+    color: Constants.bgColor,
+    shadowDarkColor: shadesBgColor[2],
+    shadowLightColor: Constants.tintsBgColor[0],
+    shadowLightColorEmboss: Constants.shadesBgColor[1],
+    shadowDarkColorEmboss: Constants.shadesBgColor[3],
+  );
+
+  static final elevatedNeumorphicEffect = NeumorphicStyle(
+    color: Constants.bgColor,
+    lightSource: LightSource.topLeft,
+    intensity: 1,
+    depth: 3,
+    shadowDarkColor: Constants.shadesBgColor[0],
+    shadowLightColor: Constants.tintsBgColor[0],
+  );
 }
