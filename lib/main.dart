@@ -3,6 +3,7 @@ import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:flutter/material.dart';
 
 import 'package:google_fonts/google_fonts.dart';
+import 'package:neurmorphism_faq/exp_tile.dart';
 import 'package:neurmorphism_faq/reveal_tile.dart';
 
 import 'constants.dart';
@@ -71,6 +72,12 @@ class _MyHomePageState extends State<MyHomePage> {
         // elevation: 3,
       ),
       body: SafeArea(
+        // child: SingleChildScrollView(
+        //   child: Container(
+        //     padding: const EdgeInsets.all(10.0),
+        //     child: ExpTile(),
+        //   ),
+        // ),
         child: SingleChildScrollView(
           child: Column(
             children: List.generate(
@@ -120,81 +127,83 @@ class _MyHomePageState extends State<MyHomePage> {
               //   textColor: Colors.white,
               //   tilePadding: const EdgeInsets.all(7.0),
               // ),
+              //   ),
+              //),
             ),
+            // CustomScrollView(
+            //   slivers: [
+            //     SliverAppBar(
+            //       title: Text(
+            //         'FAQs',
+            //         style: GoogleFonts.cabin(
+            //           fontWeight: FontWeight.bold,
+            //           fontSize: 30,
+            //         ),
+            //       ),
+            //       leading: BackButton(),
+            //       centerTitle: true,
+            //       backgroundColor: Constants.bgColor,
+            //       elevation: 3,
+            //     ),
+            //     SliverFillRemaining(
+            //       hasScrollBody: true,
+            //       child: SingleChildScrollView(
+            //         child: Column(
+            //           children: List.generate(
+            //             Constants.quesAnd.length,
+            //             (i) => Padding(
+            //               padding: const EdgeInsets.symmetric(
+            //                   horizontal: 20.0, vertical: 15.0),
+            //               child: RevealTile(index: i),
+            //             ),
+            //             // child: RevealTile(index: index),),),  Padding(
+            //             // padding: const EdgeInsets.symmetric(
+            //             //     horizontal: 20.0, vertical: 15.0),
+            //             // child: RevealTile(index: index),
+            //             // ExpansionTile(
+            //             //   backgroundColor: Constants.tileBgColor,
+            //             //   title: Container(
+            //             //     // color: Constants.tileBgColor,
+            //             //     padding: const EdgeInsets.all(10.0),
+
+            //             //     child: Text(
+            //             //       Constants.quesAnd.keys.elementAt(index),
+            //             //       style: GoogleFonts.cabin(
+            //             //         fontWeight: FontWeight.bold,
+            //             //         fontSize: 20,
+            //             //       ),
+            //             //     ),
+            //             //   ),
+            //             //   children: [
+            //             //     ListTile(
+            //             //       tileColor: Constants.expandedTileColor,
+            //             //       contentPadding: const EdgeInsets.only(
+            //             //           bottom: 20.0, left: 15.0, right: 15.0),
+            //             //       title: Text(
+            //             //         Constants.quesAnd.values.toList()[index],
+            //             //         style: GoogleFonts.cabin(fontSize: 18),
+            //             //       ),
+            //             //     ),
+            //             //     // ),
+            //             //   ],
+            //             //   // trailing: const Icon(Icons.arrow_forward_ios_sharp),
+            //             //   controlAffinity: ListTileControlAffinity.trailing,
+            //             //   // collapsedBackgroundColor:
+            //             //   //     Color.fromARGB(255, 55, 60, 72),
+            //             //   collapsedIconColor: Colors.white,
+            //             //   // backgroundColor: Color.fromARGB(255, 88, 96, 112),
+            //             //   iconColor: Colors.white,
+            //             //   textColor: Colors.white,
+            //             //   tilePadding: const EdgeInsets.all(7.0),
+            //             // ),
+            //           ),
+            //         ),
+            //       ),
+            //     ),
+            //   ],
+            // ),
           ),
         ),
-        // CustomScrollView(
-        //   slivers: [
-        //     SliverAppBar(
-        //       title: Text(
-        //         'FAQs',
-        //         style: GoogleFonts.cabin(
-        //           fontWeight: FontWeight.bold,
-        //           fontSize: 30,
-        //         ),
-        //       ),
-        //       leading: BackButton(),
-        //       centerTitle: true,
-        //       backgroundColor: Constants.bgColor,
-        //       elevation: 3,
-        //     ),
-        //     SliverFillRemaining(
-        //       hasScrollBody: true,
-        //       child: SingleChildScrollView(
-        //         child: Column(
-        //           children: List.generate(
-        //             Constants.quesAnd.length,
-        //             (i) => Padding(
-        //               padding: const EdgeInsets.symmetric(
-        //                   horizontal: 20.0, vertical: 15.0),
-        //               child: RevealTile(index: i),
-        //             ),
-        //             // child: RevealTile(index: index),),),  Padding(
-        //             // padding: const EdgeInsets.symmetric(
-        //             //     horizontal: 20.0, vertical: 15.0),
-        //             // child: RevealTile(index: index),
-        //             // ExpansionTile(
-        //             //   backgroundColor: Constants.tileBgColor,
-        //             //   title: Container(
-        //             //     // color: Constants.tileBgColor,
-        //             //     padding: const EdgeInsets.all(10.0),
-
-        //             //     child: Text(
-        //             //       Constants.quesAnd.keys.elementAt(index),
-        //             //       style: GoogleFonts.cabin(
-        //             //         fontWeight: FontWeight.bold,
-        //             //         fontSize: 20,
-        //             //       ),
-        //             //     ),
-        //             //   ),
-        //             //   children: [
-        //             //     ListTile(
-        //             //       tileColor: Constants.expandedTileColor,
-        //             //       contentPadding: const EdgeInsets.only(
-        //             //           bottom: 20.0, left: 15.0, right: 15.0),
-        //             //       title: Text(
-        //             //         Constants.quesAnd.values.toList()[index],
-        //             //         style: GoogleFonts.cabin(fontSize: 18),
-        //             //       ),
-        //             //     ),
-        //             //     // ),
-        //             //   ],
-        //             //   // trailing: const Icon(Icons.arrow_forward_ios_sharp),
-        //             //   controlAffinity: ListTileControlAffinity.trailing,
-        //             //   // collapsedBackgroundColor:
-        //             //   //     Color.fromARGB(255, 55, 60, 72),
-        //             //   collapsedIconColor: Colors.white,
-        //             //   // backgroundColor: Color.fromARGB(255, 88, 96, 112),
-        //             //   iconColor: Colors.white,
-        //             //   textColor: Colors.white,
-        //             //   tilePadding: const EdgeInsets.all(7.0),
-        //             // ),
-        //           ),
-        //         ),
-        //       ),
-        //     ),
-        //   ],
-        // ),
       ),
     );
   }

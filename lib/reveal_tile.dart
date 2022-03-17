@@ -16,6 +16,7 @@ class _RevealTileState extends State<RevealTile>
   final Duration _kExpand = Duration(milliseconds: 200);
   late Animation<double> _iconTurns;
   late Animation<double> _tileOpacity;
+  late Animation<double> _sizeFactor;
   late Animation<Offset> _tileOffset;
 
   late AnimationController _controller;
@@ -27,6 +28,8 @@ class _RevealTileState extends State<RevealTile>
       Tween<double>(begin: 0.0, end: 1.0);
   static final Animatable<Offset> _offsetTween =
       Tween<Offset>(begin: Offset(0, -0.2), end: Offset(0, 0));
+  // static final Animatable<double> _sizeTween =
+  //     Tween<double>(begin: 0, end: );
 
   bool _isExpanded = false;
   bool _animationCompleted = false;
@@ -40,14 +43,24 @@ class _RevealTileState extends State<RevealTile>
           setState(() {
             _animationCompleted = true;
           });
-        } else
+        } else {
           setState(() => _animationCompleted = false);
+        }
       });
     _iconTurns = _controller.drive(_quarterTween.chain(_easeInTween));
+    _sizeFactor = CurvedAnimation(parent: _controller, curve: Curves.easeOut);
     _tileOpacity = _controller.drive(_fullTween.chain(_easeInTween))
-      ..addListener(() {
-        if (_tileOpacity.value > 0.8) {
-          setState(() {});
+      // _sizeFactor = _controller.drive(_fullTween.chain(_easeInTween));
+      ..addStatusListener((status) {
+        if (status == AnimationStatus.forward ||
+            status == AnimationStatus.completed) {
+          if (_tileOpacity.value > 0.8) {
+            setState(() {});
+          }
+        } else {
+          if (_tileOpacity.value < 0.2) {
+            setState(() {});
+          }
         }
       });
     _tileOffset = _controller.drive(_offsetTween.chain(_easeInTween));
