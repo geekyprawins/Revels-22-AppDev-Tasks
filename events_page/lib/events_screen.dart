@@ -44,7 +44,9 @@ class _EventsScreenState extends State<EventsScreen>
         backgroundColor: const Color(0xFF1B1D23),
         centerTitle: true,
         bottom: TabBar(
+          isScrollable: true,
           indicatorColor: const Color(0xFFD22CD8),
+          indicatorWeight: 0.5,
           controller: _controller,
           // isScrollable: true,
           // overlayColor: MaterialStateProperty.all(Colors.amberAccent),
@@ -77,28 +79,15 @@ class _EventsScreenState extends State<EventsScreen>
         controller: _controller,
         children: [
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 25.0, vertical: 25),
+            padding: const EdgeInsets.symmetric(horizontal: 25.0),
             child: ListView.separated(
               itemBuilder: (context, index) {
-                return Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: const [
-                    Icon(
-                      Icons.circle,
-                      color: Colors.white,
-                      size: 12,
-                    ),
-                    SizedBox(
-                      width: 18,
-                    ),
-                    EventTile(),
-                  ],
-                );
+                return const NeumorphicEventTile();
               },
               itemCount: 15,
               separatorBuilder: (BuildContext context, int index) {
                 return const SizedBox(
-                  height: 45,
+                  height: 30,
                 );
               },
             ),
