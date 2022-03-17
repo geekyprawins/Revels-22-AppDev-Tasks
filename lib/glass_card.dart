@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:neurmorphism_faq/constants.dart';
 
 class GlassCard extends StatelessWidget {
   const GlassCard({Key? key}) : super(key: key);
@@ -9,8 +10,10 @@ class GlassCard extends StatelessWidget {
       decoration: BoxDecoration(
         gradient: LinearGradient(
           colors: [
-            Colors.white.withOpacity(0.6),
-            Colors.white.withOpacity(0.3),
+            // Colors.white.withOpacity(0.6),
+            Constants.shadesBgColor[2].withOpacity(0.6),
+            Constants.shadesBgColor[2].withOpacity(0.3),
+            // Colors.white.withOpacity(0.3),
           ],
           begin: AlignmentDirectional.topStart,
           end: AlignmentDirectional.bottomEnd,

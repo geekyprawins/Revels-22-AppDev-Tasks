@@ -22,7 +22,8 @@ class Constants with ChangeNotifier {
         'answer8'
   };
 
-  static const Color bgColor = Color(0xFF21424B);
+  static const Color bgColor = Color.fromARGB(1, 33, 36, 43);
+  //Color(0xFF21424B);
   static const List<Color> shadesBgColor = [
     Color(0xFF172E34),
     Color(0xFF102125),
@@ -53,7 +54,9 @@ class Constants with ChangeNotifier {
     lightSource: LightSource.topLeft,
     intensity: 1,
     depth: 3,
-    shadowDarkColor: Constants.shadesBgColor[0],
-    shadowLightColor: Constants.tintsBgColor[0],
+    shadowDarkColor: Color.fromRGBO(69, 73, 84, 0.2),
+    //Constants.shadesBgColor[0],
+    shadowLightColor: Color.fromRGBO(0, 0, 0, 0.4),
+    //Constants.tintsBgColor[0],
   );
 }

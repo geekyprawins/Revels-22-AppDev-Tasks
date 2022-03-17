@@ -37,6 +37,8 @@ dependencies:
   flip_card: ^0.6.0
   flutter_lorem: ^2.0.0
   flutter_neumorphic: ^3.2.0
+  google_fonts: ^2.3.1
+  flutter_svg: ^1.0.3
   
 
 
