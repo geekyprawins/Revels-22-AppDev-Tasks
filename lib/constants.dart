@@ -22,7 +22,7 @@ class Constants with ChangeNotifier {
         'answer8'
   };
 
-  static const Color bgColor = Color.fromARGB(1, 33, 36, 43);
+  static const Color bgColor = Color.fromRGBO(33, 36, 43, 1);
   //Color(0xFF21424B);
   static const List<Color> shadesBgColor = [
     Color(0xFF172E34),
@@ -31,6 +31,11 @@ class Constants with ChangeNotifier {
     Color(0xFF030607),
     Color(0xFF000000),
   ];
+
+  static const Color tileBgColor = Color.fromARGB(255, 55, 60, 72);
+  static const Color expandedTileColor = Color.fromARGB(255, 111, 121, 141);
+  static const Color stackTileColor = Color.fromARGB(255, 125, 134, 155);
+
   static const List<Color> tintsBgColor = [
     Color(0xFF37545D),
     Color(0xFF798d93),

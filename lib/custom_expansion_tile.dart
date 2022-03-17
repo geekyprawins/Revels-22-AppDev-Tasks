@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:neurmorphism_faq/constants.dart';
 
 const Duration _kExpand = Duration(milliseconds: 200);
 
@@ -82,7 +83,7 @@ class CustomExpansionTileState extends State<CustomExpansionTile>
   static final Animatable<double> _easeInTween =
       CurveTween(curve: Curves.easeIn);
   static final Animatable<double> _halfTween =
-      Tween<double>(begin: 0.0, end: 0.5);
+      Tween<double>(begin: 0.0, end: 0.25);
 
   final ColorTween _borderColorTween = ColorTween();
   final ColorTween _headerColorTween = ColorTween();
@@ -152,7 +153,7 @@ class CustomExpansionTileState extends State<CustomExpansionTile>
   Widget? _buildIcon(BuildContext context) {
     return RotationTransition(
       turns: _iconTurns,
-      child: const Icon(Icons.expand_more),
+      child: const Icon(Icons.arrow_forward_ios_rounded),
     );
   }
 
@@ -170,39 +171,50 @@ class CustomExpansionTileState extends State<CustomExpansionTile>
 
   Widget _buildChildren(BuildContext context, Widget? child) {
     final Color borderSideColor = _borderColor.value ?? Colors.transparent;
-
-    return Container(
-      decoration: BoxDecoration(
-        color: _backgroundColor.value ?? Colors.transparent,
-        // borderRadius: BorderRadius.circular(15.0),
-        border: Border(
-          top: BorderSide(color: borderSideColor),
-          bottom: BorderSide(color: borderSideColor),
-        ),
+    return ClipRRect(
+      borderRadius: const BorderRadius.only(
+        bottomLeft: Radius.circular(10.0),
+        bottomRight: Radius.circular(10.0),
       ),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
-          ListTileTheme.merge(
-            iconColor: _iconColor.value,
-            textColor: _headerColor.value,
-            child: ListTile(
-              onTap: _handleTap,
-              contentPadding: widget.tilePadding,
-              leading: widget.leading ?? _buildLeadingIcon(context),
-              title: widget.title,
-              subtitle: widget.subtitle,
-              trailing: widget.trailing ?? _buildTrailingIcon(context),
+      child: Container(
+        decoration: BoxDecoration(
+          color: _backgroundColor.value ?? Colors.transparent,
+          border: Border(
+              top: BorderSide(color: borderSideColor),
+              bottom: BorderSide(
+                  color:
+                      borderSideColor) //Constants.expandedTileColor, width: 10.0),
+              ),
+        ),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            ListTileTheme.merge(
+              iconColor: _iconColor.value,
+              textColor: _headerColor.value,
+              // tileColor: Constants.tileBgColor,
+              child: ListTile(
+                // shape: RoundedRectangleBorder(
+                // borderRadius: const BorderRadius.only(
+                //   topLeft: Radius.circular(10.0),
+                //   topRight: Radius.circular(10.0),
+                // ),
+                // ),
+                onTap: _handleTap,
+                contentPadding: widget.tilePadding,
+                leading: widget.leading ?? _buildLeadingIcon(context),
+                title: widget.title,
+                subtitle: widget.subtitle,
+                trailing: widget.trailing ?? _buildTrailingIcon(context),
+              ),
             ),
-          ),
-          ClipRect(
-            child: Align(
+            Align(
               alignment: widget.expandedAlignment ?? Alignment.center,
               heightFactor: _heightFactor.value,
               child: child,
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
