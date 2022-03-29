@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
 
 class ProShowScreen extends StatefulWidget {
@@ -183,24 +184,27 @@ class _ProShowScreenState extends State<ProShowScreen>
                     height: 34,
                   ),
                   Container(
-                    height: 184,
-                    width: 334,
+                    height: 200,
+                    width: 500,
                     decoration: BoxDecoration(
                       image: DecorationImage(
                         image: AssetImage(
-                            'assets/image 7.png')
+                            'assets/image 7.png'),
+                        fit: BoxFit.fill
                       ),)
                   ),
                   SizedBox(
                     height: 20,
                   ),
                   Container(
-                      height: 184,
-                      width: 334,
+                      height: 200,
+                      width: 500,
                       decoration: BoxDecoration(
                         image: DecorationImage(
                             image: AssetImage(
-                                'assets/image 7.png')
+                                'assets/image 7.png'),
+                            fit: BoxFit.fill
+
                         ),)
                   ),
                   SizedBox(
