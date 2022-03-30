@@ -38,8 +38,6 @@ class _DeveloperTileState extends State<DeveloperTile> {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
       ),
-      // height: 220,
-      // width: 180,
       height: 220,
       width: width * 0.45,
       child: Neumorphic(
