@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter/widgets.dart';
 
 class ProShowScreen extends StatefulWidget {
   @override
@@ -36,14 +37,19 @@ class _ProShowScreenState extends State<ProShowScreen>
           Icons.arrow_back,
         ),
         toolbarHeight: 100,
-        title: Text(
-          "Proshow",
-          style: TextStyle(
-            fontFamily: 'Cabin',
-            fontWeight: FontWeight.w400,
-            fontSize: 25
-          ),
-        ),
+        title:
+            Text(
+              "Proshow",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontFamily: 'Cabin',
+                fontWeight: FontWeight.w400,
+                fontSize: 25,
+                decoration: TextDecoration.underline,
+                decorationColor: Color.fromRGBO(255, 255, 255, 0.2),
+
+              ),
+            ),
 
         backgroundColor: Color(0xFF121416),
         centerTitle: true,
@@ -123,11 +129,19 @@ class _ProShowScreenState extends State<ProShowScreen>
         controller: _controller,
         children: [
 
-          Padding(
-            padding: const EdgeInsets.fromLTRB(21, 8, 28, 19),
+          ListView(
+            children: [
+              Divider(
+                height:20,
+                thickness: 1,
+                indent:20,
+                endIndent: 0,
+                color: Color.fromRGBO(255, 255, 255, 0.2)
+              ),
+              Padding(
+                  padding: const EdgeInsets.fromLTRB(21, 8, 28, 19),
 
-            child: ListView(
-              children: [Column(
+                child: Column(
                 children: [
                   Padding(
                     padding: const EdgeInsets.fromLTRB(2,18,2,2),
@@ -153,7 +167,7 @@ class _ProShowScreenState extends State<ProShowScreen>
                                 color: Colors.white,
                                 fontFamily: 'Montserrat',
                                 fontSize: 15,
-                                fontWeight: FontWeight.w400
+                                fontWeight: FontWeight.w600
                             )),
                           ],
                         ),
@@ -230,8 +244,8 @@ class _ProShowScreenState extends State<ProShowScreen>
                     ),),
                   )
                 ],
-              ),]
             ),
+              ),]
           ),
           const Center(
             child: Text("Day 2",
