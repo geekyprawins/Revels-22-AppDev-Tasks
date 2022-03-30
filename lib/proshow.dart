@@ -38,19 +38,25 @@ class _ProShowScreenState extends State<ProShowScreen>
         ),
         toolbarHeight: 100,
         title:
-            Text(
-              "Proshow",
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontFamily: 'Cabin',
-                fontWeight: FontWeight.w400,
-                fontSize: 25,
-                decoration: TextDecoration.underline,
-                decorationColor: Color.fromRGBO(255, 255, 255, 0.2),
-
+            Container(
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(0,0,0,8),
+                child: Text(
+                  "Proshow",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontFamily: 'Cabin',
+                    fontWeight: FontWeight.w400,
+                    fontSize: 25,
+                  ),
+                ),
               ),
+              decoration: BoxDecoration(
+              border: Border(
+    bottom: BorderSide(width: 1.0, color: Color.fromRGBO(255, 255, 255, 0.2)),
+    ),
             ),
-
+            ),
         backgroundColor: Color(0xFF121416),
         centerTitle: true,
         bottom: TabBar(
@@ -132,10 +138,10 @@ class _ProShowScreenState extends State<ProShowScreen>
           ListView(
             children: [
               Divider(
-                height:20,
+                height:15,
                 thickness: 1,
                 indent:20,
-                endIndent: 0,
+                endIndent: 20,
                 color: Color.fromRGBO(255, 255, 255, 0.2)
               ),
               Padding(
