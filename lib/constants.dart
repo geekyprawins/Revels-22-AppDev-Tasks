@@ -45,7 +45,7 @@ class Constants with ChangeNotifier {
   ];
 
   static final depressedNeumorphicEffect = NeumorphicStyle(
-    depth: -2,
+    depth: -8,
     intensity: 0.5,
     color: Constants.bgColor,
     shadowDarkColor: shadesBgColor[2],
@@ -54,14 +54,29 @@ class Constants with ChangeNotifier {
     shadowDarkColorEmboss: Constants.shadesBgColor[3],
   );
 
-  static final elevatedNeumorphicEffect = NeumorphicStyle(
+  static const Color darkShadow = Color.fromRGBO(0, 0, 0, 0.4);
+  static const Color lightShadow = Color.fromRGBO(69, 73, 84, 0.2);
+
+  static var elevatedNeumorphicEffect = NeumorphicStyle(
+    shape: NeumorphicShape.concave,
+    boxShape: NeumorphicBoxShape.roundRect(
+      BorderRadius.circular(15.0),
+    ),
     color: Constants.bgColor,
     lightSource: LightSource.topLeft,
-    intensity: 1,
-    depth: 3,
-    shadowDarkColor: Color.fromRGBO(69, 73, 84, 0.2),
-    //Constants.shadesBgColor[0],
-    shadowLightColor: Color.fromRGBO(0, 0, 0, 0.4),
-    //Constants.tintsBgColor[0],
+    intensity: 0.5,
+    depth: 10,
+    shadowDarkColor: Color.fromRGBO(0, 0, 0, 0.4),
+    shadowLightColor: Color.fromRGBO(69, 73, 84, 0.2),
+  );
+
+  static final dialogNeumorphicEffect = NeumorphicStyle(
+    color: Constants.bgColor,
+    lightSource: LightSource.topLeft,
+    intensity: 0.45,
+    depth: 10,
+    surfaceIntensity: 0.5,
+    shadowDarkColor: Color.fromRGBO(0, 0, 0, 0.4),
+    shadowLightColor: Color.fromRGBO(69, 73, 84, 0.2),
   );
 }
