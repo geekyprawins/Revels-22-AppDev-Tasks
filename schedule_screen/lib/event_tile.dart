@@ -1,5 +1,6 @@
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class EventTile extends StatefulWidget {
   const EventTile({Key? key, required this.colorIndex}) : super(key: key);
@@ -36,7 +37,7 @@ class _EventTileState extends State<EventTile> {
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width * 0.85,
-      height: 110,
+      height: 100,
       decoration: const BoxDecoration(
         borderRadius: BorderRadius.all(
           Radius.circular(
@@ -48,99 +49,103 @@ class _EventTileState extends State<EventTile> {
       child: NeumorphicButton(
         pressed: isPressed,
         onPressed: press,
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  ClipRRect(
-                    borderRadius: const BorderRadius.all(
-                      Radius.circular(
-                        10,
-                      ),
-                    ),
-                    child: VerticalDivider(
-                      color: lineColors[widget.colorIndex],
-                      thickness: 10,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                ClipRRect(
+                  borderRadius: const BorderRadius.all(
+                    Radius.circular(
+                      10,
                     ),
                   ),
-                  const SizedBox(
-                    width: 18,
+                  child: VerticalDivider(
+                    color: lineColors[widget.colorIndex],
+                    thickness: 10,
                   ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Text(
-                        "Event",
-                        style: TextStyle(
+                ),
+                const SizedBox(
+                  width: 15,
+                ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Event",
+                      style: GoogleFonts.cabin(
+                        textStyle: const TextStyle(
                           color: Colors.white,
                           fontSize: 20,
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
-                      Row(
-                        children: const [
-                          FaIcon(
-                            FontAwesomeIcons.clock,
-                            color: Color(0xFFE9E9E9),
-                            size: 15,
-                          ),
-                          SizedBox(
-                            width: 5,
-                          ),
-                          Text(
-                            "4:00 - 5:00 PM",
-                            style: TextStyle(
+                    ),
+                    Row(
+                      children: [
+                        const FaIcon(
+                          FontAwesomeIcons.clock,
+                          color: Color(0xFFE9E9E9),
+                          size: 15,
+                        ),
+                        const SizedBox(
+                          width: 5,
+                        ),
+                        Text(
+                          "4:00 - 5:00 PM",
+                          style: GoogleFonts.cabin(
+                            textStyle: const TextStyle(
                               color: Color(0xFFE9E9E9),
                               fontSize: 14,
                             ),
                           ),
-                        ],
-                      ),
-                      Row(
-                        children: const [
-                          FaIcon(
-                            FontAwesomeIcons.locationPinLock,
-                            color: Color(0xFFE9E9E9),
-                            size: 15,
-                          ),
-                          SizedBox(
-                            width: 5,
-                          ),
-                          Text(
-                            "Academic Block 3",
-                            style: TextStyle(
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        const FaIcon(
+                          Icons.location_on_outlined,
+                          color: Color(0xFFE9E9E9),
+                          size: 15,
+                        ),
+                        const SizedBox(
+                          width: 5,
+                        ),
+                        Text(
+                          "Academic Block 3",
+                          style: GoogleFonts.cabin(
+                            textStyle: const TextStyle(
                               color: Color(0xFFE9E9E9),
                               fontSize: 14,
                             ),
                           ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-              IconButton(
-                onPressed: toggleLike,
-                icon: isLiked
-                    ? const FaIcon(
-                        FontAwesomeIcons.solidHeart,
-                        color: Colors.pink,
-                      )
-                    : const FaIcon(
-                        FontAwesomeIcons.heart,
-                        color: Colors.white,
-                      ),
-              ),
-            ],
-          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ],
+            ),
+            IconButton(
+              onPressed: toggleLike,
+              icon: isLiked
+                  ? const FaIcon(
+                      FontAwesomeIcons.solidHeart,
+                      color: Colors.pink,
+                    )
+                  : const FaIcon(
+                      FontAwesomeIcons.heart,
+                      color: Colors.white,
+                    ),
+            ),
+          ],
         ),
         style: const NeumorphicStyle(
-          intensity: 0.5,
-          depth: 3,
+          intensity: 0,
+          depth: 1,
           color: Color(0xFF21242B),
           lightSource: LightSource.topLeft,
         ),

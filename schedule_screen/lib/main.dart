@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       title: 'Schedule',
       home: const ScheduleScreen(),
       theme: ThemeData(
-        fontFamily: "Cabin",
+        // fontFamily: "Cabin",
         splashColor: const Color(0xFF576075),
       ),
     );

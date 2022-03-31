@@ -1,4 +1,6 @@
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'events_list.dart';
 
@@ -23,18 +25,20 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
           child: SafeArea(
             child: Column(
               children: [
-                const Padding(
-                  padding: EdgeInsets.only(
+                Padding(
+                  padding: const EdgeInsets.only(
                     left: 15.0,
                     top: 15.0,
                     right: 15.0,
                   ),
                   child: Text(
                     "Schedule",
-                    style: TextStyle(
-                      fontWeight: FontWeight.w700,
-                      fontSize: 24,
-                      color: Colors.white,
+                    style: GoogleFonts.cabin(
+                      textStyle: const TextStyle(
+                        fontWeight: FontWeight.w700,
+                        fontSize: 24,
+                        color: Colors.white,
+                      ),
                     ),
                   ),
                 ),
@@ -45,19 +49,26 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
                   height: 20,
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(15.0),
+                  padding: const EdgeInsets.only(
+                    top: 30,
+                    bottom: 10,
+                  ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           Container(
-                            child: const Center(
+                            child: Center(
                               child: Text(
                                 "Day 1",
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 15,
+                                style: GoogleFonts.cabin(
+                                  textStyle: const TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 ),
                               ),
                             ),
@@ -67,15 +78,15 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
                                 Radius.circular(5),
                               ),
                             ),
-                            width: 65,
+                            width: 75,
                             height: 40,
                           ),
                           const Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: Icon(
-                              Icons.chevron_right,
+                            padding: EdgeInsets.all(15.0),
+                            child: FaIcon(
+                              FontAwesomeIcons.chevronRight,
                               color: Colors.white,
-                              size: 25,
+                              size: 18,
                             ),
                           ),
                         ],
@@ -91,10 +102,10 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
                           child: Icon(
                             Icons.calendar_month_outlined,
                             color: Colors.white,
-                            size: 25,
+                            size: 35,
                           ),
                         ),
-                        width: 55,
+                        width: 40,
                         height: 40,
                       ),
                     ],
@@ -106,8 +117,8 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
                     height: 80,
                     child: Neumorphic(
                       style: const NeumorphicStyle(
-                        intensity: 0.5,
-                        depth: 2,
+                        intensity: 0,
+                        depth: 1,
                         color: Color(0xFF21242B),
                         lightSource: LightSource.top,
                       ),
@@ -115,80 +126,39 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
                         backgroundColor:
                             const Color(0xFF1B1D23).withOpacity(0.8),
                         elevation: 0,
-                        bottom: const TabBar(
+                        bottom: TabBar(
                           isScrollable: true,
                           indicator: BoxDecoration(
-                            color: Color(0xFF16B694),
-                            borderRadius: BorderRadius.all(
+                            color: const Color(0xFF16B694).withOpacity(0.6),
+                            borderRadius: const BorderRadius.all(
                               Radius.circular(10),
                             ),
                           ),
-                          tabs: [
-                            Tab(
-                              text: "10",
+                          tabs: List<Tab>.generate(7, (index) {
+                            final Map<int, String> days = {
+                              10: "S",
+                              11: "M",
+                              12: "T",
+                              13: "W",
+                              14: "T",
+                              15: "F",
+                              16: "S",
+                            };
+                            return Tab(
+                              text: (index + 10).toString(),
                               icon: Text(
-                                "S",
-                                style: TextStyle(
-                                  color: Colors.white,
+                                days[index + 10].toString(),
+                                style: GoogleFonts.cabin(
+                                  textStyle: const TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 ),
                               ),
                               // icon: ,
-                            ),
-                            Tab(
-                              text: "11",
-                              icon: Text(
-                                "M",
-                                style: TextStyle(
-                                  color: Colors.white,
-                                ),
-                              ),
-                            ),
-                            Tab(
-                              text: "12",
-                              icon: Text(
-                                "T",
-                                style: TextStyle(
-                                  color: Colors.white,
-                                ),
-                              ),
-                            ),
-                            Tab(
-                              text: "13",
-                              icon: Text(
-                                "W",
-                                style: TextStyle(
-                                  color: Colors.white,
-                                ),
-                              ),
-                            ),
-                            Tab(
-                              text: "14",
-                              icon: Text(
-                                "T",
-                                style: TextStyle(
-                                  color: Colors.white,
-                                ),
-                              ),
-                            ),
-                            Tab(
-                              text: "15",
-                              icon: Text(
-                                "F",
-                                style: TextStyle(
-                                  color: Colors.white,
-                                ),
-                              ),
-                            ),
-                            Tab(
-                              text: "16",
-                              icon: Text(
-                                "S",
-                                style: TextStyle(
-                                  color: Colors.white,
-                                ),
-                              ),
-                            ),
-                          ],
+                            );
+                          }),
                         ),
                       ),
                     ),
