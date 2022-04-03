@@ -5,6 +5,7 @@ import 'package:neurmorphism_faq/categories_page.dart';
 import 'package:neurmorphism_faq/faq_page.dart';
 
 import 'constants.dart';
+import 'teams_page.dart';
 
 void main() => runApp(const MyApp());
 
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const CategoriesPage(),
+      home: TeamsPage(),
       theme: ThemeData(
         primaryColor: Constants.bgColor,
         splashColor: Colors.transparent,

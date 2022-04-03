@@ -54,21 +54,46 @@ class Constants with ChangeNotifier {
     shadowDarkColorEmboss: Constants.shadesBgColor[3],
   );
 
+  static const bottomSheetColor = Color.fromRGBO(55, 60, 72, 1);
+  static const bottomSheetRadius = Radius.circular(70.0);
+
   static const Color darkShadow = Color.fromRGBO(0, 0, 0, 0.4);
   static const Color lightShadow = Color.fromRGBO(69, 73, 84, 0.2);
+  static const Color underlineColor = Color.fromRGBO(255, 255, 255, 0.3);
+
+  static final Color barrierColor = Colors.black.withOpacity(0.8);
+
+  static const elevatedNeumorphicRadio = NeumorphicRadioStyle(
+    shape: NeumorphicShape.flat,
+    boxShape: NeumorphicBoxShape.circle(),
+    selectedColor: Constants.darkShadow,
+    unselectedColor: Constants.lightShadow,
+    intensity: 0.4,
+    unselectedDepth: 2,
+    selectedDepth: -3,
+  );
 
   static final elevatedNeumorphicEffect = NeumorphicStyle(
-    shape: NeumorphicShape.concave,
+    shape: NeumorphicShape.convex,
     boxShape: NeumorphicBoxShape.roundRect(
-      BorderRadius.circular(15.0),
+      BorderRadius.circular(10.0),
     ),
     color: Constants.bgColor,
-    lightSource: LightSource.topLeft,
-    intensity: 0.5,
-    depth: 10,
-    shadowDarkColor: const Color.fromRGBO(0, 0, 0, 0.4),
-    shadowLightColor: const Color.fromRGBO(69, 73, 84, 0.2),
+    // lightSource: LightSource.topLeft,
+    intensity: 0.6,
+    depth: 5,
+    shadowDarkColor: Constants.darkShadow,
+    shadowLightColor: Constants.lightShadow,
   );
+  static final elevatedNeumorphicStyle = NeumorphicStyle(
+      shape: NeumorphicShape.flat,
+      boxShape: NeumorphicBoxShape.roundRect(BorderRadius.circular(12)),
+      depth: 6,
+      surfaceIntensity: 0.0,
+      lightSource: LightSource.topLeft,
+      color: Constants.bgColor,
+      shadowDarkColor: Constants.darkShadow,
+      shadowLightColor: Constants.lightShadow);
 
   static final dialogNeumorphicEffect = NeumorphicStyle(
     shape: NeumorphicShape.flat,
